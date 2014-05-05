@@ -1,0 +1,24 @@
+#include
+/usr/sbin/hiawatha {
+    	#include 
+
+    	capability dac_override,
+    	capability net_bind_service,
+    	capability sys_chroot,
+    	capability setgid,
+    	capability setuid,
+
+    	network inet tcp,
+
+    	/usr/sbin/hiawatha mr,
+    	/usr/sbin/cgi-wrapper mr,
+    	/etc/passwd r,
+    	/etc/group r,
+    	/etc/hiawatha/** r,
+    	/etc/nsswitch.conf r,
+    	/var/log/hiawatha/* rw,
+    	/var/run/hiawatha.pid w,
+    	/var/lib/hiawatha/* rw,
+    	/var/www/** rw,
+    	/home/*/public_html/** r,
+}
